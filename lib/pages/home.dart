@@ -22,46 +22,58 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Wasserwat?'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+      body: LayoutBuilder(
+        builder: (context, layout) {
+          return Column(
             children: [
-              const PhValueSlider(),
-              Text(
-                'Wachstumsphase',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .titleLarge,
+              Center(
+                child: Container(
+                  width: layout.maxWidth > 600 ? 600 : layout.maxWidth,
+                  alignment: Alignment.topCenter,
+                  padding: const EdgeInsets.all(16),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const PhValueSlider(),
+                        Text(
+                          'Wachstumsphase',
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .titleLarge,
+                        ),
+                        const Center(
+                          child: GrowthStageSelector(),
+                        ),
+                        const SizedBox(height: 16),
+                        Consumer(
+                          builder: (context, ref, child) {
+                            return SwitchListTile(
+                              value: ref.watch(inCalculatorModeProvider),
+                              onChanged: (value) {
+                                ref
+                                    .read(inCalculatorModeProvider.notifier)
+                                    .state = value;
+                              },
+                              title: const Text('Zielwerte anzeigen'),
+                            );
+                          },
+                        ),
+                        const CalciumSlider(),
+                        const CalciumTargetSlider(),
+                        const MagnesiumSlider(),
+                        const MagnesiumTargetSlider(),
+                        const CalciumMagnesiumCalculator(),
+                        const RequiredNutrients(),
+                      ],
+                    ),
+                  ),
+                ),
               ),
-              const Center(
-                child: GrowthStageSelector(),
-              ),
-              const SizedBox(height: 16),
-              Consumer(
-                builder: (context, ref, child) {
-                  return SwitchListTile(
-                    value: ref.watch(inCalculatorModeProvider),
-                    onChanged: (value) {
-                      ref
-                          .read(inCalculatorModeProvider.notifier)
-                          .state = value;
-                    },
-                    title: const Text('Zielwerte anzeigen'),
-                  );
-                },
-              ),
-              const CalciumSlider(),
-              const CalciumTargetSlider(),
-              const MagnesiumSlider(),
-              const MagnesiumTargetSlider(),
-              const CalciumMagnesiumCalculator(),
-              const RequiredNutrients(),
             ],
-          ),
-        ),
+          );
+        },
       ),
     );
   }
