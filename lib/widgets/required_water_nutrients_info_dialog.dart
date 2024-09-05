@@ -6,12 +6,12 @@ class RequiredWaterNutrientsInfoDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('FAQ - Cal/Mag-Werte'),
+      title: const Text('FAQ - Cal/Mag-Werte'),
       content: SizedBox(
         height: MediaQuery.of(context).size.height * 0.5,
         width: MediaQuery.of(context).size.width * 0.8,
         child: ListView(
-          children: [
+          children: const [
             ListTile(
               title: Text('Warum ist das Verhältnis von Calcium zu Magnesium wichtig?'),
               subtitle: Text('Für ein optimales Wachstum deiner Pflanzen sollte das Verhältnis von Calcium (Ca) zu Magnesium (Mg) idealerweise 3:1 betragen. Ein unausgeglichenes Verhältnis kann Nährstoffblockaden verursachen, was zu Wachstumsproblemen führt.'),
