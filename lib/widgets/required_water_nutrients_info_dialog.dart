@@ -8,8 +8,8 @@ class RequiredWaterNutrientsInfoDialog extends StatelessWidget {
     return AlertDialog(
       title: Text('FAQ - Cal/Mag-Werte'),
       content: SizedBox(
-        height: 500,
-        width: 300,
+        height: MediaQuery.of(context).size.height * 0.5,
+        width: MediaQuery.of(context).size.width * 0.8,
         child: ListView(
           children: [
             ListTile(
