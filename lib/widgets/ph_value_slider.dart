@@ -57,7 +57,7 @@ class _PhValueSliderState extends State<PhValueSlider> {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              Text('pH 4.8'),
+              const Text('pH 4.8'),
               Expanded(
                 child: Slider(
                   value: normalize(_phValue),
@@ -72,7 +72,7 @@ class _PhValueSliderState extends State<PhValueSlider> {
                   label: 'ph ${normalize(_phValue)}',
                 ),
               ),
-              Text('pH 8.8'),
+              const Text('pH 8.8'),
             ],
           ),
         ),
