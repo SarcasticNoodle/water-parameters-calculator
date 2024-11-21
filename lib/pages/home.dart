@@ -22,16 +22,16 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Wasserwat?'),
       ),
-      body: LayoutBuilder(
-        builder: (context, layout) {
-          return Column(
-            children: [
-              Center(
-                child: Container(
-                  width: layout.maxWidth > 600 ? 600 : layout.maxWidth,
-                  alignment: Alignment.topCenter,
-                  padding: const EdgeInsets.all(16),
-                  child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: LayoutBuilder(
+          builder: (context, layout) {
+            return Column(
+              children: [
+                Center(
+                  child: Container(
+                    width: layout.maxWidth > 600 ? 600 : layout.maxWidth,
+                    alignment: Alignment.topCenter,
+                    padding: const EdgeInsets.all(16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -70,10 +70,10 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-            ],
-          );
-        },
+              ],
+            );
+          },
+        ),
       ),
     );
   }
