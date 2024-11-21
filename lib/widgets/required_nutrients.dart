@@ -71,7 +71,7 @@ class RequiredNutrients extends ConsumerWidget {
           ),
         if (!requiredCalciumDiff.isNegative)
           Text(
-            '${(requiredCalciumDiff * kCalciumNitrateRatio).toStringAsFixed(2)}g Calcium Nitrate',
+            '${(requiredCalciumDiff * kCalciumNitrateRatio).toStringAsFixed(2)}g Calcium Nitrat',
           ),
       ],
     );
